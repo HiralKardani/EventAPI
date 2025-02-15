@@ -24,7 +24,7 @@ class RegisterView(APIView):
             return Response({'error': 'Username already exists'}, status=status.HTTP_400_BAD_REQUEST)
 
         user = User(username=username, role=role)
-        user.set_password(password)  # Correct way to hash password
+        user.set_password(password)  # to create hash password
         user.save()
 
         return Response({'message': 'User registered successfully'}, status=status.HTTP_201_CREATED)
